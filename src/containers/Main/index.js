@@ -1,7 +1,8 @@
 import React from 'react'
 import './style.css'
 import SortingTabs from '../../components/SortingTabs'
-import Ticket from '../../components/Ticket'
+import TicketList from '../../components/TicketList'
+import ticketsData from './tickets.json'
 
 const sortingOptions = [
   { label: 'самый дешевый', value: 'cheapest' },
@@ -16,10 +17,7 @@ const onChangeSorting = (sorting) => {
 const Main = () => (
   <div className="main">
     <SortingTabs options={sortingOptions} defaultValue="cheapest" onChange={onChangeSorting} />
-    <Ticket.Group>
-      <Ticket id="1" />
-      <Ticket id="2" />
-    </Ticket.Group>
+    <TicketList tickets={ticketsData} />
   </div>
 )
 
