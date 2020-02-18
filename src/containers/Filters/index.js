@@ -3,7 +3,7 @@ import './style.css'
 import Checkbox from '../../components/Checkbox'
 
 const options = [
-  { label: 'Все', value: 'all' },
+  { label: 'Все', value: 'all', checkAll: true },
   { label: 'Без пересадок', value: 'bez' },
   { label: '1 пересадка', value: '1' },
   { label: '2 пересадка', value: '2' },

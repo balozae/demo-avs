@@ -3,13 +3,16 @@ import './style.css'
 
 const Checkbox = (checkboxProps) => {
   const { value, label, onChange, checked: propsChecked } = checkboxProps
-  const [checked, setChecked] = useState(propsChecked)
+  const [isChecked, setChecked] = useState(propsChecked)
 
   const onKeyDown = (event) => {
     // enter
     if (event.keyCode === 13) {
-      setChecked(!checked)
-      onChange(value, !checked)
+      setChecked(!isChecked)
+      onChange({
+        value,
+        checked: !isChecked
+      })
     }
   }
 
@@ -21,8 +24,8 @@ const Checkbox = (checkboxProps) => {
             className="checkbox__field"
             type="checkbox"
             value={value}
-            onChange={({ target: { checked: checkboxChecked } }) => { setChecked(checkboxChecked); onChange(value, checkboxChecked) }}
-            checked={checked} />
+            onChange={({ target: { checked } }) => { setChecked(checked); onChange({value, checked}) }}
+            checked={isChecked} />
           <span className="checkbox__face" />
         </span>
         {label}
