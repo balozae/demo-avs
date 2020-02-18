@@ -1,17 +1,19 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './style.css'
 
 const Checkbox = (checkboxProps) => {
-  const { value, label, onChange, checked: propsChecked } = checkboxProps
-  const [isChecked, setChecked] = useState(propsChecked)
+  const { value, label, checked: defaultChecked, onChange: cbOnChange } = checkboxProps
+
+  const onChange = ({target: {checked}}) => {
+    cbOnChange({value, checked})
+  }
 
   const onKeyDown = (event) => {
     // enter
     if (event.keyCode === 13) {
-      setChecked(!isChecked)
-      onChange({
-        value,
-        checked: !isChecked
+      cbOnChange({
+        checked: !defaultChecked,
+        value
       })
     }
   }
@@ -24,18 +26,14 @@ const Checkbox = (checkboxProps) => {
             className="checkbox__field"
             type="checkbox"
             value={value}
-            onChange={({ target: { checked } }) => { setChecked(checked); onChange({value, checked}) }}
-            checked={isChecked} />
+            checked={defaultChecked}
+            onChange={onChange} />
           <span className="checkbox__face" />
         </span>
         {label}
       </label>
     </div>
   )
-}
-
-Checkbox.defaultProps = {
-  checked: false
 }
 
 export default Checkbox

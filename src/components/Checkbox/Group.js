@@ -3,20 +3,25 @@ import Checkbox from './Checkbox'
 import './style.css'
 
 const CheckboxGroup = (props) => {
-  const { options, value: groupValue, onChange } = props
+  const { options, selected, onChange } = props
 
-  const onCheckboxChange = ({value, checked, checkAll}) => {
+  const onCheckboxChange = ({ value, checked }) => {
     if (checked) {
-      onChange(groupValue.concat(value))
+      onChange(selected.concat(value))
     } else {
-      onChange(groupValue.filter(v => v !== value))
+      onChange(selected.filter(v => v !== value))
     }
   }
 
   return (
     <div className="checkbox__group">
       {options.map(option => (
-        <Checkbox key={option.value} {...option} onChange={onCheckboxChange} checked={groupValue.includes(option.value)} />
+        <Checkbox
+          {...option}
+          key={option.value}
+          onChange={onCheckboxChange}
+          checked={selected.includes(option.value)}
+        />
       ))}
     </div>
   )

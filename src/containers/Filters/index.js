@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './style.css'
-import Checkbox from '../../components/Checkbox'
+import FilterStops from '../../components/FilterStops'
 
 const options = [
-  { label: 'Все', value: 'all', checkAll: true },
   { label: 'Без пересадок', value: 'bez' },
   { label: '1 пересадка', value: '1' },
   { label: '2 пересадка', value: '2' },
@@ -11,22 +10,15 @@ const options = [
 ]
 
 const Filters = () => {
-  const [stops, setStops] = useState(['bez'])
-
-  const onChange = (values) => {
-    setStops(values)
+  const onChangeStops = (stops) => {
+    console.log('filters__wrapper', stops)
   }
 
-  return <div className="filters__wrapper">
-      <div className="filter__item">
-        <div className="filter__heading">
-          Количество пересадок
-        </div>
-        <div className="filter__content">
-          <Checkbox.Group options={options} value={stops} onChange={onChange} />
-        </div>
-      </div>
+  return (
+    <div className="filters__wrapper">
+      <FilterStops options={options} defaultValue={['bez']} onChange={onChangeStops} />
     </div>
+  )
 }
 
 export default Filters
