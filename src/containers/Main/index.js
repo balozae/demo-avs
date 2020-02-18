@@ -1,7 +1,7 @@
 import React from 'react'
 import './style.css'
-import SortingTabs from '../../components/SortingTabs'
-import TicketList from '../../components/TicketList'
+import SortingTabs from 'components/SortingTabs'
+import TicketList from 'components/TicketList'
 import ticketsData from './tickets.json'
 
 const sortingOptions = [

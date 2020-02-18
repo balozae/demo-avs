@@ -1,7 +1,7 @@
 import React from 'react'
-import { formattedTime } from '../../misc/formatter'
-import { addMinutes, durationHumanize } from '../../misc/date'
-import plural from '../../misc/plural'
+import { formattedTime } from 'misc/formatter'
+import { addMinutes, durationHumanize } from 'misc/date'
+import plural from 'misc/plural'
 import './style.css'
 
 const Segment = (props) => {

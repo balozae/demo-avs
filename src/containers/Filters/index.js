@@ -1,6 +1,6 @@
 import React from 'react'
 import './style.css'
-import FilterStops from '../../components/FilterStops'
+import FilterStops from 'components/FilterStops'
 
 const options = [
   { label: 'Без пересадок', value: 'bez' },

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import Checkbox from '../Checkbox'
-import pluck from '../../misc/pluck'
+import Checkbox from 'components/Checkbox'
+import pluck from 'misc/pluck'
 
 const FilterStops = (props) => {
   const { options, defaultValue: selectedStops } = props

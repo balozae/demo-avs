@@ -1,6 +1,6 @@
 import React from 'react'
 import Segment from './Segment'
-import { formattedNumber } from '../../misc/formatter'
+import { formattedNumber } from 'misc/formatter'
 import './style.css'
 
 const Ticket = (props) => {
