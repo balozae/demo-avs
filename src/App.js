@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css'
-import Header from './components/Header'
+import Header from './containers/Header'
 import Filters from './containers/Filters'
 import Main from './containers/Main'
 

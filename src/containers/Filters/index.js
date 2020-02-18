@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './style.css'
-import Checkbox from '../../Checkbox'
+import Checkbox from '../../components/Checkbox'
 
 const options = [
   { label: 'Все', value: 'all' },
