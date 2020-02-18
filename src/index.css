@@ -5,7 +5,7 @@ body {
   font-family: "Open Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #e5e5e5;
+  background-color: #f3f7fa;
   color: #4a4a4a;
 }
 
@@ -19,6 +19,12 @@ code {
 
 :root {
   --filter-heading-color: #4a4a4a;
+
+  --sorting-tabs-border-color: #dfe5ec;
+  --sorting-tab-color--active: #fff;
+  --sorting-tab-bg: #fff;
+  --sorting-tab-bg--active: #2196f3;
+  --sorting-tab-bg--hover: #e5f9ff;
 
   --checkbox-border-color: #9abbce;
   --checkbox-border-color--hover: #2196f3;
