@@ -12,7 +12,7 @@ export const ACTION_TYPES = {
 
 ACTION_TYPES.SET_FILTER_STOPS = `${REDUCER_NAME}/SET_FILTER_STOPS`
 ACTION_TYPES.SET_SORT_FLIGHT = `${REDUCER_NAME}/SET_SORT_FLIGHT`
-ACTION_TYPES.SET_POLLING = `${REDUCER_NAME}/SET_POLLING`
+ACTION_TYPES.GET_LIST = `${REDUCER_NAME}/GET_LIST`
 
 /* Selectors */
 export const selectors = {}
@@ -21,6 +21,10 @@ selectors.reducer = state => state[REDUCER_NAME]
 selectors.list = createSelector(
   selectors.reducer,
   (({ list }) => list)
+)
+selectors.isFetching = createSelector(
+  selectors.reducer,
+  (({ isFetching }) => isFetching)
 )
 selectors.searchId = createSelector(
   selectors.reducer,
@@ -50,18 +54,15 @@ actions.setSortFlight = (payload) => ({
   type: ACTION_TYPES.SET_SORT_FLIGHT,
   payload
 })
-actions.setPolling = (payload) => ({
-  type: ACTION_TYPES.SET_POLLING,
-  payload
+actions.getList = () => ({
+  type: ACTION_TYPES.GET_LIST
 })
-actions.getList = (searchId) => ({
+actions.getChunks = (searchId) => ({
   type: ACTION_TYPES.GET_CHUNK,
   meta: { searchId },
   transformPayload: ({ tickets, stop }) => {
     if (!stop) {
-      store.dispatch(actions.getList(searchId))
-    } else {
-      store.dispatch(actions.setPolling(false))
+      store.dispatch(actions.getChunks(searchId))
     }
 
     const newTickets = tickets.map(ticket => {

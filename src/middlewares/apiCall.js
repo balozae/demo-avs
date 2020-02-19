@@ -16,7 +16,7 @@ const apiCallMiddleware = ({ dispatch }) => next => async function apiCallMiddle
   })
 
   try {
-    const response = await withRetry(action.apiCall, 5, ({ ok }) => ok)
+    const response = await withRetry(action.apiCall, 10, ({ ok }) => ok)
     const data = await response.json()
 
     dispatch({

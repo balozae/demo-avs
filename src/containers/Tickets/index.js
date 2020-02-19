@@ -14,6 +14,7 @@ const sortingOptions = [
 
 const Tickets = () => {
   const searchId = useSelector(ticketDuck.selectors.searchId)
+  const isFetching = useSelector(ticketDuck.selectors.isFetching)
   const stops = useSelector(ticketDuck.selectors.stops)
   const sortFlight = useSelector(ticketDuck.selectors.sortFlight)
   const tickets = useSelector(ticketDuck.selectors.list)
@@ -24,9 +25,13 @@ const Tickets = () => {
 
   useEffect(() => {
     if (searchId !== '') {
-      store.dispatch(ticketDuck.actions.getList(searchId))
+      store.dispatch(ticketDuck.actions.getChunks(searchId))
     }
   }, [searchId])
+
+  useEffect(() => {
+    store.dispatch(ticketDuck.actions.getList())
+  }, [searchId, sortFlight, isFetching])
 
   return (
     <div className="main">
