@@ -1,6 +1,7 @@
 import { genPromiseActionNames } from 'misc/helpers'
+import withRetry from 'misc/withRetry'
 
-const apiCallMiddleware = ({ dispatch }) => next => action => {
+const apiCallMiddleware = ({ dispatch }) => next => async function apiCallMiddlewareAction(action) {
   const { apiCall, type, meta, transformPayload } = action
 
   if (!apiCall) {
@@ -14,24 +15,24 @@ const apiCallMiddleware = ({ dispatch }) => next => action => {
     meta
   })
 
-  return action
-    .apiCall()
-    .then(response => response.json())
-    .then(response => {
-      dispatch({
-        type: fulfilled,
-        payload: transformPayload ? transformPayload(response) : response,
-        meta
-      })
+  try {
+    const response = await withRetry(action.apiCall, 5, ({ ok }) => ok)
+    const data = await response.json()
+
+    dispatch({
+      type: fulfilled,
+      payload: transformPayload ? transformPayload(data) : data,
+      meta
     })
-    .catch(e => {
-      console.log('catch = ', e)
-      dispatch({
-        type: rejected,
-        payload: e,
-        meta
-      })
+  } catch (e) {
+    console.error(e)
+
+    dispatch({
+      type: rejected,
+      payload: e,
+      meta
     })
+  }
 }
 
 export default apiCallMiddleware

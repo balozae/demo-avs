@@ -59,7 +59,7 @@ actions.getList = (searchId) => ({
   meta: { searchId },
   transformPayload: ({ tickets, stop }) => {
     if (!stop) {
-      // store.dispatch(actions.getList(searchId))
+      store.dispatch(actions.getList(searchId))
     } else {
       store.dispatch(actions.setPolling(false))
     }
