@@ -17,8 +17,12 @@ const ticketReducer = (state = initialState, action) => {
       return { ...state, isFetching: true, isPolling: true }
 
     case ACTION_TYPES.GET_CHUNK_FULFILLED:
-      const { chunks, list } = state
-      return { ...state, isFetching: false, list: list.concat(payload) }
+      const { list } = state
+      return {
+        ...state,
+        isFetching: false,
+        list: list.concat(payload)
+      }
 
     case ACTION_TYPES.GET_SEARCH_ID_FULFILLED:
       return { ...state, searchId: payload.searchId }

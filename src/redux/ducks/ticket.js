@@ -64,7 +64,12 @@ actions.getList = (searchId) => ({
       store.dispatch(actions.setPolling(false))
     }
 
-    return tickets
+    const newTickets = tickets.map(ticket => {
+      ticket.uuid = Math.random().toString(36).substring(2, 16)
+      return ticket
+    })
+
+    return newTickets
   },
   apiCall: () => api.tickets.getChunkBySearchId(searchId)
 })
