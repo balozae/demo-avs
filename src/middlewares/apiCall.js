@@ -1,7 +1,7 @@
 import { genPromiseActionNames } from 'misc/helpers'
 
 const apiCallMiddleware = ({ dispatch }) => next => action => {
-  const { apiCall, type, meta } = action
+  const { apiCall, type, meta, transformPayload } = action
 
   if (!apiCall) {
     return next(action)
@@ -20,7 +20,7 @@ const apiCallMiddleware = ({ dispatch }) => next => action => {
     .then(response => {
       dispatch({
         type: fulfilled,
-        payload: response,
+        payload: transformPayload ? transformPayload(response) : response,
         meta
       })
     })

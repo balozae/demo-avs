@@ -1,6 +1,7 @@
 import { createSelector } from 'reselect'
 import { genPromiseActionTypes } from 'misc/helpers'
 import api from 'misc/api'
+import store from 'redux/store'
 
 const REDUCER_NAME = 'ticket'
 
@@ -11,6 +12,7 @@ export const ACTION_TYPES = {
 
 ACTION_TYPES.SET_FILTER_STOPS = `${REDUCER_NAME}/SET_FILTER_STOPS`
 ACTION_TYPES.SET_SORT_FLIGHT = `${REDUCER_NAME}/SET_SORT_FLIGHT`
+ACTION_TYPES.SET_POLLING = `${REDUCER_NAME}/SET_POLLING`
 
 /* Selectors */
 export const selectors = {}
@@ -48,13 +50,24 @@ actions.setSortFlight = (payload) => ({
   type: ACTION_TYPES.SET_SORT_FLIGHT,
   payload
 })
-actions.getList = (searchId) => {
-  return ({
-    type: ACTION_TYPES.GET_CHUNK,
-    meta: { searchId },
-    apiCall: () => api.tickets.getChunksBySearchId(searchId)
-  })
-}
+actions.setPolling = (payload) => ({
+  type: ACTION_TYPES.SET_POLLING,
+  payload
+})
+actions.getList = (searchId) => ({
+  type: ACTION_TYPES.GET_CHUNK,
+  meta: { searchId },
+  transformPayload: ({ tickets, stop }) => {
+    if (!stop) {
+      // store.dispatch(actions.getList(searchId))
+    } else {
+      store.dispatch(actions.setPolling(false))
+    }
+
+    return tickets
+  },
+  apiCall: () => api.tickets.getChunkBySearchId(searchId)
+})
 
 export default {
   actions,
