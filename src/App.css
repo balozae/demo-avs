@@ -4,7 +4,7 @@
 }
 
 .wrapper {
-  padding-bottom: 195px; /* 195px - footer height */
+  padding-bottom: 235px; /* 235px - footer height */
 }
 
 .container {
@@ -17,6 +17,10 @@
 
 .jc-flex-start {
   justify-content: flex-start;
+}
+
+.jc-flex-end {
+  justify-content: flex-end;
 }
 
 .jc-space-around {
