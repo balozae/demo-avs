@@ -15,7 +15,7 @@ const sortingOptions = [
 const Tickets = () => {
   const searchId = useSelector(ticketDuck.selectors.searchId)
   const isFetching = useSelector(ticketDuck.selectors.isFetching)
-  const stops = useSelector(ticketDuck.selectors.stops)
+  const stops = useSelector(ticketDuck.selectors.filterStops)
   const sortFlight = useSelector(ticketDuck.selectors.sortFlight)
   const tickets = useSelector(ticketDuck.selectors.list)
 

@@ -1,9 +1,9 @@
 import { ACTION_TYPES } from 'redux/ducks/ticket'
 
 const initialState = {
-  sortFlight: 'cheapest',
   searchId: '',
-  stops: [0],
+  sortFlight: 'cheapest',
+  filterStops: [0],
   isFetching: false,
   limit: 5,
   chunks: [],
@@ -30,7 +30,7 @@ const stopsFilter = (allowed) => (ticket) => {
 
 const ticketReducer = (state = initialState, action) => {
   const { type, payload } = action
-  const { chunks, sortFlight, stops, limit } = state
+  const { chunks, sortFlight, filterStops: stops, limit } = state
 
   switch (type) {
     case ACTION_TYPES.GET_CHUNK_PENDING:
@@ -62,7 +62,7 @@ const ticketReducer = (state = initialState, action) => {
       return { ...state, sortFlight: payload }
 
     case ACTION_TYPES.SET_FILTER_STOPS:
-      return { ...state, stops: payload }
+      return { ...state, filterStops: payload }
 
     default: {
       return state

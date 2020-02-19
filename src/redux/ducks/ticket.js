@@ -34,9 +34,9 @@ selectors.sortFlight = createSelector(
   selectors.reducer,
   (({ sortFlight }) => sortFlight)
 )
-selectors.stops = createSelector(
+selectors.filterStops = createSelector(
   selectors.reducer,
-  (({ stops }) => stops)
+  (({ filterStops }) => filterStops)
 )
 
 /* Actions */

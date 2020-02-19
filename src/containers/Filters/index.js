@@ -13,7 +13,7 @@ const options = [
 ]
 
 const Filters = () => {
-  const stops = useSelector(ticketDuck.selectors.stops)
+  const stops = useSelector(ticketDuck.selectors.filterStops)
 
   return (
     <div className="filters__wrapper">
