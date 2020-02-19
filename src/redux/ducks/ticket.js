@@ -5,7 +5,7 @@ import api from 'misc/api'
 const REDUCER_NAME = 'ticket'
 
 export const ACTION_TYPES = {
-  ...genPromiseActionTypes(REDUCER_NAME, 'GET_LIST'),
+  ...genPromiseActionTypes(REDUCER_NAME, 'GET_CHUNK'),
   ...genPromiseActionTypes(REDUCER_NAME, 'GET_SEARCH_ID')
 }
 
@@ -40,11 +40,6 @@ actions.getSearchId = () => ({
   type: ACTION_TYPES.GET_SEARCH_ID,
   apiCall: () => api.tickets.getSearchId()
 })
-actions.getList = (searchId) => ({
-  type: ACTION_TYPES.GET_LIST,
-  meta: { searchId },
-  apiCall: () => api.tickets.getList(searchId)
-})
 actions.setStops = (payload) => ({
   type: ACTION_TYPES.SET_FILTER_STOPS,
   payload
@@ -53,6 +48,13 @@ actions.setSortFlight = (payload) => ({
   type: ACTION_TYPES.SET_SORT_FLIGHT,
   payload
 })
+actions.getList = (searchId) => {
+  return ({
+    type: ACTION_TYPES.GET_CHUNK,
+    meta: { searchId },
+    apiCall: () => api.tickets.getChunksBySearchId(searchId)
+  })
+}
 
 export default {
   actions,

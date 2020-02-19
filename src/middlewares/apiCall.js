@@ -1,4 +1,4 @@
-import { genPromiseActionNames } from '../misc/helpers'
+import { genPromiseActionNames } from 'misc/helpers'
 
 const apiCallMiddleware = ({ dispatch }) => next => action => {
   const { apiCall, type, meta } = action

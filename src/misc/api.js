@@ -7,10 +7,7 @@ class Api {
     getSearchId: () =>
       this.client(`${process.env.REACT_APP_API_URL}/search`)
     ,
-    getChunk: (searchId) =>
-      this.client(`${process.env.REACT_APP_API_URL}/tickets?searchId=${searchId}`)
-    ,
-    getList: (searchId) =>
+    getChunksBySearchId: (searchId) =>
       this.client(`${process.env.REACT_APP_API_URL}/tickets?searchId=${searchId}`)
     ,
   }
