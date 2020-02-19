@@ -9,7 +9,10 @@ export const ACTION_TYPES = {
   ...genPromiseActionTypes(REDUCER_NAME, 'GET_SEARCH_ID')
 }
 
-/*  Selectors */
+ACTION_TYPES.SET_FILTER_STOPS = `${REDUCER_NAME}/SET_FILTER_STOPS`
+ACTION_TYPES.SET_SORT_FLIGHT = `${REDUCER_NAME}/SET_SORT_FLIGHT`
+
+/* Selectors */
 export const selectors = {}
 selectors.reducer = state => state[REDUCER_NAME]
 
@@ -21,9 +24,9 @@ selectors.searchId = createSelector(
   selectors.reducer,
   (({ searchId }) => searchId)
 )
-selectors.flightSorting = createSelector(
+selectors.sortFlight = createSelector(
   selectors.reducer,
-  (({ flightSorting }) => flightSorting)
+  (({ sortFlight }) => sortFlight)
 )
 selectors.stops = createSelector(
   selectors.reducer,
@@ -42,8 +45,17 @@ actions.getList = (searchId) => ({
   meta: { searchId },
   apiCall: () => api.tickets.getList(searchId)
 })
+actions.setStops = (payload) => ({
+  type: ACTION_TYPES.SET_FILTER_STOPS,
+  payload
+})
+actions.setSortFlight = (payload) => ({
+  type: ACTION_TYPES.SET_SORT_FLIGHT,
+  payload
+})
 
 export default {
   actions,
-  selectors
+  selectors,
+  ACTION_TYPES
 }

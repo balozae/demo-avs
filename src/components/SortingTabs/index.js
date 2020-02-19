@@ -22,9 +22,8 @@ const Tab = ({ value, label, checked, onSelect }) => {
 }
 
 const SortingTabs = (props) => {
-  const { options, defaultValue, onChange } = props
-
-  const [selected, select] = useState(defaultValue)
+  const { options, initialValue, onChange } = props
+  const [selected, select] = useState(initialValue)
 
   const onTabSelect = (value) => {
     select(value)

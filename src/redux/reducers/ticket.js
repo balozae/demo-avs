@@ -1,9 +1,9 @@
 import { ACTION_TYPES } from 'redux/ducks/ticket'
 
 const initialState = {
-  flightSorting: 'cheapest',
+  sortFlight: 'cheapest',
   searchId: '',
-  steps: [],
+  stops: ['one'],
   chunks: [],
   list: [],
 }

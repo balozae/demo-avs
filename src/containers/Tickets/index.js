@@ -15,7 +15,7 @@ const sortingOptions = [
 const Tickets = () => {
   const searchId = useSelector(ticketDuck.selectors.searchId)
   const stops = useSelector(ticketDuck.selectors.stops)
-  const flightSorting = useSelector(ticketDuck.selectors.flightSorting)
+  const sortFlight = useSelector(ticketDuck.selectors.sortFlight)
   const tickets = useSelector(ticketDuck.selectors.list)
 
   useEffect(() => {
@@ -28,15 +28,16 @@ const Tickets = () => {
     }
   }, [searchId])
 
-  const onChangeSorting = (sorting) => {
-    // console.log('onChangeSorting', sorting)
-  }
-
-  console.log('stops=', stops)
-
   return (
     <div className="main">
-      <SortingTabs options={sortingOptions} defaultValue={flightSorting} onChange={onChangeSorting} />
+      <SortingTabs
+        options={sortingOptions}
+        initialValue={sortFlight}
+        onChange={(payload) => store.dispatch({
+          type: ticketDuck.ACTION_TYPES.SET_SORT_FLIGHT,
+          payload
+        })}
+      />
       <TicketList tickets={tickets} />
     </div>
   )

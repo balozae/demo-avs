@@ -3,24 +3,28 @@ import Checkbox from 'components/Checkbox'
 import pluck from 'misc/pluck'
 
 const FilterStops = (props) => {
-  const { options, defaultValue: selectedStops } = props
+  const { options, initialValue, onChange } = props
 
-  const [selected, setSelected] = useState(selectedStops)
+  const [selected, select] = useState(initialValue)
   const [isCheckedAll, setCheckAll] = useState(false)
 
   const onChangeCheckboxAll = ({ checked }) => {
     if (checked) {
+      const values = pluck(options, 'value')
       setCheckAll(true)
-      setSelected(pluck(options, 'value'))
+      select(pluck(options, 'value'))
+      onChange(values)
     } else {
       setCheckAll(false)
-      setSelected([])
+      select([])
+      onChange([])
     }
   }
 
-  const onChangeGroup = (newSelected) => {
-    setSelected(newSelected)
+  const onChangeGroup = (values) => {
     setCheckAll(false)
+    select(values)
+    onChange(values)
   }
 
   return (
