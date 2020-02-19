@@ -17,6 +17,10 @@ code {
   box-sizing: border-box;
 }
 
+a {
+  color: inherit;
+}
+
 :root {
   --filter-heading-color: #4a4a4a;
 
@@ -34,4 +38,9 @@ code {
   --ticket-bg: #fff;
   --ticket-price-color: #2196f3;
   --ticket-segment-heading-color: #a0b0b9;
+
+  --footer-bg: #fff;
+  --footer-menu-heading-color: #1e1f24;
+  --footer-menu-color: #575858;
+  --footer-menu-color--hover: #24252a;
 }
