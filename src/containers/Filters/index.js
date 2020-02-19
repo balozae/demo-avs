@@ -6,10 +6,10 @@ import ticketDuck from 'redux/ducks/ticket'
 import './style.css'
 
 const options = [
-  { label: 'Без пересадок', value: 'direct' },
-  { label: '1 пересадка', value: 'one' },
-  { label: '2 пересадка', value: 'two' },
-  { label: '3 пересадка', value: 'three' }
+  { label: 'Без пересадок', value: 0 },
+  { label: '1 пересадка', value: 1 },
+  { label: '2 пересадка', value: 2 },
+  { label: '3 пересадка', value: 3 }
 ]
 
 const Filters = () => {

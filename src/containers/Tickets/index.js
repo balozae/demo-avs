@@ -31,7 +31,7 @@ const Tickets = () => {
 
   useEffect(() => {
     store.dispatch(ticketDuck.actions.getList())
-  }, [searchId, sortFlight, isFetching])
+  }, [searchId, sortFlight, isFetching, stops])
 
   return (
     <div className="main">
