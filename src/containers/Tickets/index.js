@@ -8,7 +8,7 @@ import ticketDuck from 'redux/ducks/ticket'
 
 const sortingOptions = [
   { label: 'самый дешевый', value: 'cheapest' },
-  { label: 'самый быстрый', value: 'quick' },
+  { label: 'самый быстрый', value: 'quickest' },
   /*{ label: 'оптимальный', value: 'best' }*/
 ]
 

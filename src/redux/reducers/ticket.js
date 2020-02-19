@@ -20,7 +20,7 @@ const getSegmentsDuration = (ticket) => {
 
 const flightCompare = {
   cheapest: (a, b) => a.price - b.price,
-  quick: (a, b) => getSegmentsDuration(a) - getSegmentsDuration(b)
+  quickest: (a, b) => getSegmentsDuration(a) - getSegmentsDuration(b)
 }
 
 const stopsFilter = (allowed) => (ticket) => {
