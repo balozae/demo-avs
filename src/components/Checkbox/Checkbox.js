@@ -1,25 +1,34 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './style.css'
 
 const Checkbox = (props) => {
   const {
-    checked: defaultChecked,
+    checked: propsChecked,
     onChange: cbOnChange,
     value,
     label
   } = props
 
-  const onChange = ({ target: { checked } }) => {
-    cbOnChange({ value, checked })
+  const [checked, setChecked] = useState(propsChecked)
+
+  useEffect(() => {
+    setChecked(propsChecked)
+  }, [propsChecked])
+
+  const toggle = ({ checked, value }) => {
+    cbOnChange({ checked, value })
+  }
+
+  const onChange = (event) => {
+    const { target: { checked } } = event
+    toggle({ checked, value })
   }
 
   const onKeyDown = (event) => {
     // enter
     if (event.keyCode === 13) {
-      cbOnChange({
-        checked: !defaultChecked,
-        value
-      })
+      toggle({ value, checked: !checked })
+      setChecked(!checked)
     }
   }
 
@@ -31,8 +40,9 @@ const Checkbox = (props) => {
             className="checkbox__field"
             type="checkbox"
             value={value}
-            checked={defaultChecked}
-            onChange={onChange} />
+            checked={checked}
+            onChange={onChange}
+          />
           <span className="checkbox__face" />
         </span>
         {label}
