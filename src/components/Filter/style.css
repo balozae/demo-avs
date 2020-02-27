@@ -4,6 +4,7 @@
   border-radius: 5px;
   display: flex;
   flex-direction: column;
+  margin-bottom: 20px;
 }
 
 .filter__item .filter__heading {
