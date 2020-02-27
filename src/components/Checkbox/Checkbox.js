@@ -1,11 +1,16 @@
 import React from 'react'
 import './style.css'
 
-const Checkbox = (checkboxProps) => {
-  const { value, label, checked: defaultChecked, onChange: cbOnChange } = checkboxProps
+const Checkbox = (props) => {
+  const {
+    checked: defaultChecked,
+    onChange: cbOnChange,
+    value,
+    label
+  } = props
 
-  const onChange = ({target: {checked}}) => {
-    cbOnChange({value, checked})
+  const onChange = ({ target: { checked } }) => {
+    cbOnChange({ value, checked })
   }
 
   const onKeyDown = (event) => {
