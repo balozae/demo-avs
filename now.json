@@ -1,0 +1,12 @@
+{
+  "env": {
+    "REACT_APP_CDN_URL": "@cdn-url",
+    "REACT_APP_API_URL": "@api-url"
+  },
+  "build": {
+    "env": {
+      "REACT_APP_CDN_URL": "@cdn-url",
+      "REACT_APP_API_URL": "@api-url"
+    }
+  }
+}
