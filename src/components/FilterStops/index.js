@@ -1,42 +1,31 @@
 import React, { useState } from 'react'
+import Filter from 'components/Filter'
 import Checkbox from 'components/Checkbox'
 import pluck from 'misc/pluck'
 
 const FilterStops = (props) => {
   const { options, initialValue, onChange } = props
 
-  const [selected, select] = useState(initialValue)
-  const [isCheckedAll, setCheckAll] = useState(false)
+  const [selected, setSelected] = useState(initialValue)
 
-  const onChangeCheckboxAll = ({ checked }) => {
-    if (checked) {
-      const values = pluck(options, 'value')
-      setCheckAll(true)
-      select(pluck(options, 'value'))
-      onChange(values)
-    } else {
-      setCheckAll(false)
-      select([])
-      onChange([])
-    }
+  const toggleAll = ({ checked }) => {
+    const values = checked
+      ? pluck(options, 'value')
+      : []
+
+    select(values)
   }
 
-  const onChangeGroup = (values) => {
-    setCheckAll(false)
-    select(values)
+  const select = (values) => {
+    setSelected(values)
     onChange(values)
   }
 
   return (
-    <div className="filter__item">
-      <div className="filter__heading">
-        Количество пересадок
-        </div>
-      <div className="filter__content">
-        <Checkbox label="Все" onChange={onChangeCheckboxAll} checked={isCheckedAll} />
-        <Checkbox.Group options={options} selected={selected} onChange={onChangeGroup} />
-      </div>
-    </div>
+    <Filter label="Количество пересадок">
+      <Checkbox label="Все" onChange={toggleAll} />
+      <Checkbox.Group options={options} selected={selected} onChange={select} />
+    </Filter>
   )
 }
 
