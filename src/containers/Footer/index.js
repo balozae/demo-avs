@@ -1,13 +1,13 @@
 import React from 'react'
 import LanguageSwitcher from 'components/LanguageSwitcher'
-import './style.css'
+import './style.scss'
 
 const Footer = () => (
   <footer className="footer">
-    <div className="container jc-center">
-      <div className="col">
-        <div className="heading">Get To Known Us</div>
-        <ul className="menu">
+    <div className="footer__container container jc-center">
+      <div className="footer__column">
+        <div className="footer__heading">Get To Known Us</div>
+        <ul className="footer__menu">
           <li className="menu__item">
             <a href="https://aviasales.jobs" target="_blank" rel="noopener noreferrer">Careers</a>
           </li>
@@ -19,9 +19,9 @@ const Footer = () => (
           </li>
         </ul>
       </div>
-      <div className="col">
-        <div className="heading">Make Money with Us</div>
-        <ul className="menu">
+      <div className="footer__column">
+        <div className="footer__heading">Make Money with Us</div>
+        <ul className="footer__menu">
           <li className="menu__item">
             <a href="https://old.travelpayouts.com/auth/registration" target="_blank" rel="noopener noreferrer">Become an Affiliate</a>
           </li>
@@ -33,9 +33,9 @@ const Footer = () => (
           </li>
         </ul>
       </div>
-      <div className="col">
-        <div className="heading">Let Us Help You</div>
-        <ul className="menu">
+      <div className="footer__column">
+        <div className="footer__heading">Let Us Help You</div>
+        <ul className="footer__menu">
           <li className="menu__item">
             <a href="/" target="_blank" rel="noopener noreferrer">Your Account</a>
           </li>
@@ -49,7 +49,7 @@ const Footer = () => (
       </div>
     </div>
 
-    <div className="container jc-flex-end" style={{ marginTop: 20 }}>
+    <div className="footer__container container jc-flex-end" style={{ marginTop: 20 }}>
       <LanguageSwitcher />
     </div>
   </footer>
