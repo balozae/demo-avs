@@ -11,8 +11,9 @@
 
 .list {
   flex: 1;
-  margin-left: 20px;
-  max-width: 502px;
-  min-width: 502px;
-  width: 100%;
+
+  @include for-desktop-up {
+    margin-left: 20px;
+    flex: 1 0 502px;
+  }
 }
