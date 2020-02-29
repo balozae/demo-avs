@@ -1,4 +1,8 @@
-.main {
+.tickets {
+  display: flex;
+}
+
+.list {
   flex: 1;
   margin-left: 20px;
   max-width: 502px;

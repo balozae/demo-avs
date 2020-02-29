@@ -34,7 +34,7 @@ const Tickets = () => {
   }, [searchId, sortFlight, isFetching, stops])
 
   return (
-    <div className="main">
+    <div className="list">
       <SortingTabs
         options={sortingOptions}
         initialValue={sortFlight}

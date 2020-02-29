@@ -4,15 +4,20 @@ import Footer from 'containers/Footer'
 import Filters from 'containers/Filters'
 import Tickets from 'containers/Tickets'
 import './App.scss'
+import 'containers/Tickets/style.css'
 
 const App = () => (
   <div className="app">
     <div className="wrapper">
       <Header />
-      <div className="container">
-        <Filters />
-        <Tickets />
-      </div>
+      <main>
+        <div className="container">
+          <div className="tickets">
+            <Filters />
+            <Tickets />
+          </div>
+        </div>
+      </main>
     </div>
     <Footer />
   </div>
