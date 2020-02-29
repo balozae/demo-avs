@@ -8,6 +8,7 @@ class RetryException extends Error {
 }
 
 const withRetry = async (fn, maxRetryCount, verifyResponse) => {
+  /* eslint-disable no-await-in-loop */
   for (let i = 1; i <= maxRetryCount; i += 1) {
     try {
       const response = await fn()
@@ -24,6 +25,8 @@ const withRetry = async (fn, maxRetryCount, verifyResponse) => {
       }
     }
   }
+  /* eslint-enable no-await-in-loop */
+  return undefined
 }
 
 export default withRetry
