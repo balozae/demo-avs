@@ -4,33 +4,33 @@ import store from 'redux/store'
 import './style.scss'
 import SortingTabs from 'components/SortingTabs'
 import TicketList from 'components/TicketList'
-import ticketDuck from 'redux/ducks/ticket'
+import { selectors, actions, ACTION_TYPES } from 'redux/ducks/ticket'
 
 const sortingOptions = [
   { label: 'самый дешевый', value: 'cheapest' },
   { label: 'самый быстрый', value: 'quickest' },
-  /*{ label: 'оптимальный', value: 'best' }*/
+  /* { label: 'оптимальный', value: 'best' } */
 ]
 
 const Tickets = () => {
-  const searchId = useSelector(ticketDuck.selectors.searchId)
-  const isFetching = useSelector(ticketDuck.selectors.isFetching)
-  const stops = useSelector(ticketDuck.selectors.filterStops)
-  const sortFlight = useSelector(ticketDuck.selectors.sortFlight)
-  const tickets = useSelector(ticketDuck.selectors.list)
+  const searchId = useSelector(selectors.searchId)
+  const isFetching = useSelector(selectors.isFetching)
+  const stops = useSelector(selectors.filterStops)
+  const sortFlight = useSelector(selectors.sortFlight)
+  const tickets = useSelector(selectors.list)
 
   useEffect(() => {
-    store.dispatch(ticketDuck.actions.getSearchId())
+    store.dispatch(actions.getSearchId())
   }, [])
 
   useEffect(() => {
     if (searchId !== '') {
-      store.dispatch(ticketDuck.actions.getChunks(searchId))
+      store.dispatch(actions.getChunks(searchId))
     }
   }, [searchId])
 
   useEffect(() => {
-    store.dispatch(ticketDuck.actions.getList())
+    store.dispatch(actions.getList())
   }, [searchId, sortFlight, isFetching, stops])
 
   return (
@@ -39,8 +39,8 @@ const Tickets = () => {
         options={sortingOptions}
         initialValue={sortFlight}
         onChange={(payload) => store.dispatch({
-          type: ticketDuck.ACTION_TYPES.SET_SORT_FLIGHT,
-          payload
+          type: ACTION_TYPES.SET_SORT_FLIGHT,
+          payload,
         })}
       />
       <TicketList tickets={tickets} />
