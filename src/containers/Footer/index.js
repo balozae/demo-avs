@@ -1,5 +1,4 @@
 import React from 'react'
-import LanguageSwitcher from 'components/LanguageSwitcher'
 import './style.scss'
 
 const Footer = () => (
@@ -47,10 +46,6 @@ const Footer = () => (
           </li>
         </ul>
       </div>
-    </div>
-
-    <div className="footer__container container jc-flex-end" style={{ marginTop: 20 }}>
-      <LanguageSwitcher />
     </div>
   </footer>
 )
