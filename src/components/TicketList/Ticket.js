@@ -1,7 +1,7 @@
 import React from 'react'
 import Segment from './Segment'
 import { formattedNumber } from 'misc/formatter'
-import './style.css'
+import './style.scss'
 
 const Ticket = (props) => {
   const { price, carrier, segments } = props

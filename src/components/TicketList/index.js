@@ -1,6 +1,6 @@
 import React from 'react'
 import Ticket from './Ticket'
-import './style.css'
+import './style.scss'
 
 const TicketList = ({ tickets }) => (
   <div className="ticket__list">
