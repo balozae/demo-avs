@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import store from 'redux/store'
-import './style.css'
+import './style.scss'
 import SortingTabs from 'components/SortingTabs'
 import TicketList from 'components/TicketList'
 import ticketDuck from 'redux/ducks/ticket'

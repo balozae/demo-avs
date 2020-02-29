@@ -4,7 +4,7 @@ import Footer from 'containers/Footer'
 import Filters from 'containers/Filters'
 import Tickets from 'containers/Tickets'
 import './App.scss'
-import 'containers/Tickets/style.css'
+import 'containers/Tickets/style.scss'
 
 const App = () => (
   <>
