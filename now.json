@@ -1,12 +1,10 @@
 {
-  "env": {
-    "REACT_APP_CDN_URL": "@cdn-url",
-    "REACT_APP_API_URL": "@api-url"
-  },
   "build": {
     "env": {
       "REACT_APP_CDN_URL": "@cdn-url",
-      "REACT_APP_API_URL": "@api-url"
+      "REACT_APP_API_URL": "@api-url",
+      "REACT_APP_TITLE": "White-label product",
+      "REACT_APP_META_DESCRIPTION": "Web site created using create-react-app"
     }
   }
 }
