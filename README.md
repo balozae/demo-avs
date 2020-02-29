@@ -3,6 +3,9 @@
 ## Тестовое задание Aviasales
 Задание [тут](https://github.com/balozae/demo-avs/blob/master/docs/task.md).
 
+## Демо
+[Live demo](https://avs-kappa.now.sh/)
+
 ## Настройка
 Установи зависимости командой `yarn install`
 
