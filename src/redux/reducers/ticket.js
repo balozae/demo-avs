@@ -5,7 +5,6 @@ const initialState = {
   sortFlight: 'cheapest',
   filterStops: [0],
   isFetching: false,
-  limit: 5,
   chunks: [],
   list: []
 }
@@ -34,8 +33,9 @@ const ticketReducer = (state = initialState, action) => {
     chunks,
     sortFlight,
     filterStops: stops,
-    limit,
   } = state
+
+  const list = chunks.slice()
 
   switch (type) {
     case ACTION_TYPES.GET_CHUNK_PENDING:
@@ -49,16 +49,11 @@ const ticketReducer = (state = initialState, action) => {
       }
 
     case ACTION_TYPES.GET_LIST:
-      let list = chunks.slice()
-
       if (Object.prototype.hasOwnProperty.call(flightCompare, sortFlight)) {
         list.sort(flightCompare[sortFlight])
       }
 
-      list = list.filter(stopsFilter(stops))
-      list = list.slice(0, limit)
-
-      return { ...state, list }
+      return { ...state, list: list.filter(stopsFilter(stops)) }
 
     case ACTION_TYPES.GET_SEARCH_ID_FULFILLED:
       return { ...state, searchId: payload.searchId }
