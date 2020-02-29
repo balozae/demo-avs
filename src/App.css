@@ -8,11 +8,15 @@
 }
 
 .container {
-  max-width: 960px;
   margin: 0 auto;
-  padding: 0 103px;
-  display: flex;
-  justify-content: space-between;
+  padding: 0 15px;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 960px;
+    padding: 0 103px;
+  }
 }
 
 .jc-flex-start {
