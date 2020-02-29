@@ -1,3 +1,5 @@
+@import "styles/mixins";
+
 .app {
   position: relative;
   min-height: 100vh;
@@ -10,10 +12,8 @@
 .container {
   margin: 0 auto;
   padding: 0 15px;
-}
 
-@media (min-width: 1200px) {
-  .container {
+  @include for-desktop-up {
     max-width: 960px;
     padding: 0 103px;
   }

@@ -1,9 +1,9 @@
 import React from 'react'
-import './App.css'
 import Header from 'containers/Header'
 import Footer from 'containers/Footer'
 import Filters from 'containers/Filters'
 import Tickets from 'containers/Tickets'
+import './App.scss'
 
 const App = () => (
   <div className="app">
