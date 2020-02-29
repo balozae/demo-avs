@@ -5,7 +5,7 @@ import pluck from 'misc/pluck'
 
 const FilterStops = (props) => {
   const { options, initialValue, onChange } = props
-  const length = options.length
+  const { length } = options
 
   const [selected, setSelected] = useState(initialValue)
   const [checkedAll, setCheckedAll] = useState(false)
