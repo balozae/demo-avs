@@ -30,7 +30,12 @@ const stopsFilter = (allowed) => (ticket) => {
 
 const ticketReducer = (state = initialState, action) => {
   const { type, payload } = action
-  const { chunks, sortFlight, filterStops: stops, limit } = state
+  const {
+    chunks,
+    sortFlight,
+    filterStops: stops,
+    limit,
+  } = state
 
   switch (type) {
     case ACTION_TYPES.GET_CHUNK_PENDING:
