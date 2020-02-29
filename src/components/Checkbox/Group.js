@@ -9,13 +9,13 @@ const CheckboxGroup = (props) => {
     if (checked) {
       onChange(selected.concat(value))
     } else {
-      onChange(selected.filter(v => v !== value))
+      onChange(selected.filter((v) => v !== value))
     }
   }
 
   return (
     <div className="checkbox__group">
-      {options.map(option => (
+      {options.map((option) => (
         <Checkbox
           {...option}
           key={option.value}

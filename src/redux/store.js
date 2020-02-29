@@ -8,7 +8,7 @@ const isDev = process.env.NODE_ENV === 'development'
 
 const middlewares = [
   thunk,
-  apiCallMiddleware
+  apiCallMiddleware,
 ]
 
 if (isDev) {
@@ -17,7 +17,7 @@ if (isDev) {
 
 const store = createStore(
   rootReducer,
-  applyMiddleware(...middlewares)
+  applyMiddleware(...middlewares),
 )
 
 export default store

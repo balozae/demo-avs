@@ -6,20 +6,20 @@ const initialState = {
   filterStops: [0],
   isFetching: false,
   chunks: [],
-  list: []
+  list: [],
 }
 
 const getSegmentsDuration = (ticket) => {
   const { segments } = ticket
   return segments.reduce(
     (acc, { duration }) => acc + duration,
-    0
+    0,
   )
 }
 
 const flightCompare = {
   cheapest: (a, b) => a.price - b.price,
-  quickest: (a, b) => getSegmentsDuration(a) - getSegmentsDuration(b)
+  quickest: (a, b) => getSegmentsDuration(a) - getSegmentsDuration(b),
 }
 
 const stopsFilter = (allowed) => (ticket) => {
@@ -45,7 +45,7 @@ const ticketReducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: false,
-        chunks: chunks.concat(payload)
+        chunks: chunks.concat(payload),
       }
 
     case ACTION_TYPES.GET_LIST:

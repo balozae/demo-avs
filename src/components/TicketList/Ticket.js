@@ -1,6 +1,7 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react'
-import Segment from './Segment'
 import { formattedNumber } from 'misc/formatter'
+import Segment from './Segment'
 import './style.scss'
 
 const Ticket = (props) => {
@@ -10,7 +11,9 @@ const Ticket = (props) => {
     <div className="ticket">
       <div className="ticket__heading">
         <div className="ticket__price">
-          {formattedNumber(price)} Р
+          {formattedNumber(price)}
+          {' '}
+          Р
         </div>
         <div className="ticket__carrier">
           <img

@@ -8,7 +8,7 @@ export const genPromiseActionTypes = (reducerName, actionName) => {
   }
 }
 
-export const genPromiseActionNames = action => ({
+export const genPromiseActionNames = (action) => ({
   init: action,
   pending: `${action}_PENDING`,
   fulfilled: `${action}_FULFILLED`,

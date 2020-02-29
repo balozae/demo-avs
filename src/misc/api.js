@@ -1,3 +1,4 @@
+/* eslint-disable implicit-arrow-linebreak, comma-style */
 class Api {
   constructor() {
     this.client = fetch.bind(window)

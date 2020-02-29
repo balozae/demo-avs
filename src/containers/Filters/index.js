@@ -2,18 +2,18 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import store from 'redux/store'
 import FilterStops from 'components/FilterStops'
-import ticketDuck from 'redux/ducks/ticket'
+import { selectors, ACTION_TYPES } from 'redux/ducks/ticket'
 import './style.css'
 
 const options = [
   { label: 'Без пересадок', value: 0 },
   { label: '1 пересадка', value: 1 },
   { label: '2 пересадка', value: 2 },
-  { label: '3 пересадка', value: 3 }
+  { label: '3 пересадка', value: 3 },
 ]
 
 const Filters = () => {
-  const stops = useSelector(ticketDuck.selectors.filterStops)
+  const stops = useSelector(selectors.filterStops)
 
   return (
     <div className="filters__wrapper">
@@ -21,8 +21,8 @@ const Filters = () => {
         options={options}
         initialValue={stops}
         onChange={(payload) => store.dispatch({
-          type: ticketDuck.ACTION_TYPES.SET_FILTER_STOPS,
-          payload
+          type: ACTION_TYPES.SET_FILTER_STOPS,
+          payload,
         })}
       />
     </div>

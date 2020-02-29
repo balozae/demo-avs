@@ -4,7 +4,7 @@ import './style.scss'
 
 const TicketList = ({ tickets }) => (
   <div className="ticket__list">
-    {tickets.map(ticket => (
+    {tickets.map((ticket) => (
       <Ticket key={ticket.uuid} {...ticket} />
     ))}
   </div>

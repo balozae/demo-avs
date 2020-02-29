@@ -1,3 +1,5 @@
+// eslint-disable-next-line max-len
+/* eslint-disable jsx-a11y/no-noninteractive-tabindex, jsx-a11y/label-has-associated-control, jsx-a11y/no-noninteractive-element-interactions */
 import React, { useState, useEffect } from 'react'
 import './style.css'
 
@@ -6,17 +8,17 @@ const Checkbox = (props) => {
     checked: propsChecked,
     onChange: cbOnChange,
     value,
-    label
+    label,
   } = props
 
-  const [checked, setChecked] = useState(propsChecked)
+  const [isChecked, setChecked] = useState(propsChecked)
 
   useEffect(() => {
     setChecked(propsChecked)
   }, [propsChecked])
 
-  const toggle = ({ checked, value }) => {
-    cbOnChange({ checked, value })
+  const toggle = ({ checked, value: toggleValue }) => {
+    cbOnChange({ checked, value: toggleValue })
   }
 
   const onChange = (event) => {
@@ -27,8 +29,8 @@ const Checkbox = (props) => {
   const onKeyDown = (event) => {
     // enter
     if (event.keyCode === 13) {
-      toggle({ value, checked: !checked })
-      setChecked(!checked)
+      toggle({ value, checked: !isChecked })
+      setChecked(!isChecked)
     }
   }
 
@@ -40,7 +42,7 @@ const Checkbox = (props) => {
             className="checkbox__field"
             type="checkbox"
             value={value}
-            checked={checked}
+            checked={isChecked}
             onChange={onChange}
           />
           <span className="checkbox__face" />

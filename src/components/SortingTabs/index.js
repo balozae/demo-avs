@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import './style.css'
 
-const Tab = ({ value, label, checked, onSelect }) => {
+const Tab = ({
+  value, label, checked, onSelect,
+}) => {
   const onKeyDown = ({ keyCode }) => {
     // enter
     if (keyCode === 13) {
@@ -15,6 +17,7 @@ const Tab = ({ value, label, checked, onSelect }) => {
       onClick={onSelect.bind(null, value)}
       tabIndex="0"
       onKeyDown={onKeyDown}
+      role="button"
     >
       {label}
     </div>
@@ -32,7 +35,7 @@ const SortingTabs = (props) => {
 
   return (
     <div className="sorting__tabs">
-      {options.map(option => (
+      {options.map((option) => (
         <Tab
           key={option.value}
           {...option}

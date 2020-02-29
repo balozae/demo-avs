@@ -5,7 +5,13 @@ import plural from 'misc/plural'
 import './style.scss'
 
 const Segment = (props) => {
-  const { origin, destination, date: dateString, duration, stops } = props
+  const {
+    origin,
+    destination,
+    date: dateString,
+    duration,
+    stops,
+  } = props
 
   const date = new Date(dateString)
   const dateOrigin = formattedTime(date)
@@ -19,12 +25,30 @@ const Segment = (props) => {
   return (
     <div className="ticket-segment">
       <div className="ticket-segment__column">
-        <div className="ticket-segment__column__heading">{origin} &ndash; {destination}</div>
-        <div className="ticket-segment__column__body">{dateOrigin} &ndash; {dateDestination}</div>
+        <div className="ticket-segment__column__heading">
+          {origin}
+          {' '}
+          &ndash;
+          {' '}
+          {destination}
+        </div>
+        <div className="ticket-segment__column__body">
+          {dateOrigin}
+          {' '}
+          &ndash;
+          {' '}
+          {dateDestination}
+        </div>
       </div>
       <div className="ticket-segment__column">
         <div className="ticket-segment__column__heading">в пути</div>
-        <div className="ticket-segment__column__body">{formattedDuration.hours}ч {formattedDuration.minutes}м</div>
+        <div className="ticket-segment__column__body">
+          {formattedDuration.hours}
+          ч
+          {' '}
+          {formattedDuration.minutes}
+          м
+        </div>
       </div>
       <div className="ticket-segment__column">
         <div className="ticket-segment__column__heading">{stopsWord}</div>

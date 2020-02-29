@@ -1,6 +1,4 @@
-export const addMinutes = (date, minutes) => {
-  return new Date(+date + (minutes * 60 * 1000))
-}
+export const addMinutes = (date, minutes) => new Date(+date + (minutes * 60 * 1000))
 
 export const durationHumanize = (minutes) => {
   const h = Math.ceil(minutes / 60)
@@ -8,6 +6,6 @@ export const durationHumanize = (minutes) => {
 
   return {
     hours: h,
-    minutes: m
+    minutes: m,
   }
 }

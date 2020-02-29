@@ -10,19 +10,19 @@ const FilterStops = (props) => {
   const [selected, setSelected] = useState(initialValue)
   const [checkedAll, setCheckedAll] = useState(false)
 
+  const select = (values) => {
+    const afterLength = values.length
+    setCheckedAll(afterLength === length)
+    setSelected(values)
+    onChange(values)
+  }
+
   const toggleAll = ({ checked }) => {
     const values = checked
       ? pluck(options, 'value')
       : []
 
     select(values)
-  }
-
-  const select = (values) => {
-    const afterLength = values.length
-    setCheckedAll(afterLength === length)
-    setSelected(values)
-    onChange(values)
   }
 
   return (

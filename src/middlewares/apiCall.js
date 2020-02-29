@@ -1,8 +1,10 @@
 import { genPromiseActionNames } from 'misc/helpers'
 import withRetry from 'misc/withRetry'
 
-const apiCallMiddleware = ({ dispatch }) => next => async function apiCallMiddlewareAction(action) {
-  const { apiCall, type, meta, transformPayload } = action
+const apiCallMiddleware = ({ dispatch }) => (next) => async function apiCallMiddle(action) {
+  const {
+    apiCall, type, meta, transformPayload,
+  } = action
 
   if (!apiCall) {
     return next(action)
@@ -10,10 +12,7 @@ const apiCallMiddleware = ({ dispatch }) => next => async function apiCallMiddle
 
   const { pending, fulfilled, rejected } = genPromiseActionNames(type)
 
-  dispatch({
-    type: pending,
-    meta
-  })
+  dispatch({ type: pending, meta })
 
   try {
     const response = await withRetry(action.apiCall, 10, ({ ok }) => ok)
@@ -22,17 +21,20 @@ const apiCallMiddleware = ({ dispatch }) => next => async function apiCallMiddle
     dispatch({
       type: fulfilled,
       payload: transformPayload ? transformPayload(data) : data,
-      meta
+      meta,
     })
   } catch (e) {
+    // eslint-disable-next-line no-console
     console.error(e)
 
     dispatch({
       type: rejected,
       payload: e,
-      meta
+      meta,
     })
   }
+
+  return undefined
 }
 
 export default apiCallMiddleware
