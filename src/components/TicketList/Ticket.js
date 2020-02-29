@@ -1,5 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react'
+import PropTypes from 'prop-types'
 import { formattedNumber } from 'misc/formatter'
 import Segment from './Segment'
 import './style.scss'
@@ -31,6 +32,12 @@ const Ticket = (props) => {
       ))}
     </div>
   )
+}
+
+Ticket.propTypes = {
+  price: PropTypes.number.isRequired,
+  carrier: PropTypes.string.isRequired,
+  segments: PropTypes.arrayOf(PropTypes.objectOf(Segment.propTypes)).isRequired,
 }
 
 export default Ticket

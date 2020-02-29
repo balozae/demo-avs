@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import Filter from 'components/Filter'
 import Checkbox from 'components/Checkbox'
 import pluck from 'misc/pluck'
@@ -31,6 +32,15 @@ const FilterStops = (props) => {
       <Checkbox.Group options={options} selected={selected} onChange={select} />
     </Filter>
   )
+}
+
+FilterStops.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.object).isRequired,
+  initialValue: PropTypes.arrayOf(PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ])).isRequired,
+  onChange: PropTypes.func.isRequired,
 }
 
 export default FilterStops

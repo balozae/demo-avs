@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { formattedTime } from 'misc/formatter'
 import { addMinutes, durationHumanize } from 'misc/date'
 import plural from 'misc/plural'
@@ -56,6 +57,14 @@ const Segment = (props) => {
       </div>
     </div>
   )
+}
+
+Segment.propTypes = {
+  origin: PropTypes.string.isRequired,
+  destination: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  duration: PropTypes.number.isRequired,
+  stops: PropTypes.arrayOf(PropTypes.string).isRequired,
 }
 
 export default Segment

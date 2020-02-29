@@ -1,6 +1,7 @@
 // eslint-disable-next-line max-len
 /* eslint-disable jsx-a11y/no-noninteractive-tabindex, jsx-a11y/label-has-associated-control, jsx-a11y/no-noninteractive-element-interactions */
 import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import './style.css'
 
 const Checkbox = (props) => {
@@ -51,6 +52,16 @@ const Checkbox = (props) => {
       </label>
     </div>
   )
+}
+
+Checkbox.propTypes = {
+  checked: PropTypes.bool.isRequired,
+  onChange: PropTypes.func.isRequired,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
+  label: PropTypes.string.isRequired,
 }
 
 export default Checkbox

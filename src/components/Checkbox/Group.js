@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Checkbox from './Checkbox'
 import './style.css'
 
@@ -25,6 +26,15 @@ const CheckboxGroup = (props) => {
       ))}
     </div>
   )
+}
+
+CheckboxGroup.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.object).isRequired,
+  selected: PropTypes.arrayOf(PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ])).isRequired,
+  onChange: PropTypes.func.isRequired,
 }
 
 export default CheckboxGroup

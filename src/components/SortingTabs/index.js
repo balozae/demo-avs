@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import './style.css'
 
 const Tab = ({
@@ -24,6 +25,16 @@ const Tab = ({
   )
 }
 
+Tab.propTypes = {
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
+  label: PropTypes.string.isRequired,
+  checked: PropTypes.bool.isRequired,
+  onSelect: PropTypes.func.isRequired,
+}
+
 const SortingTabs = (props) => {
   const { options, initialValue, onChange } = props
   const [selected, select] = useState(initialValue)
@@ -45,6 +56,15 @@ const SortingTabs = (props) => {
       ))}
     </div>
   )
+}
+
+SortingTabs.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.object).isRequired,
+  initialValue: PropTypes.arrayOf(PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ])).isRequired,
+  onChange: PropTypes.func.isRequired,
 }
 
 export default SortingTabs
