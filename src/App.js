@@ -7,7 +7,7 @@ import './App.scss'
 import 'containers/Tickets/style.css'
 
 const App = () => (
-  <div className="app">
+  <>
     <div className="wrapper">
       <Header />
       <main>
@@ -20,7 +20,7 @@ const App = () => (
       </main>
     </div>
     <Footer />
-  </div>
+  </>
 )
 
 export default App
