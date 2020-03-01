@@ -18,6 +18,8 @@ const Tickets = () => {
   const stops = useSelector(selectors.filterStops)
   const sortFlight = useSelector(selectors.sortFlight)
   const tickets = useSelector(selectors.list)
+  const chunks = useSelector(selectors.chunks)
+  const total = chunks.length
   const data = tickets.slice(0, 5)
 
   useEffect(() => {
@@ -44,7 +46,7 @@ const Tickets = () => {
           payload,
         })}
       />
-      <TicketList tickets={data} />
+      <TicketList tickets={data} total={total} />
     </div>
   )
 }

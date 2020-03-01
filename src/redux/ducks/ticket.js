@@ -22,6 +22,10 @@ selectors.list = createSelector(
   selectors.reducer,
   (({ list }) => list),
 )
+selectors.chunks = createSelector(
+  selectors.reducer,
+  (({ chunks }) => chunks),
+)
 selectors.isFetching = createSelector(
   selectors.reducer,
   (({ isFetching }) => isFetching),

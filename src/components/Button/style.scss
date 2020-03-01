@@ -1,0 +1,22 @@
+.btn {
+  border-radius: var(--border-radius);
+  background: var(--btn-bg);
+  color: var(--btn-color);
+  font-weight: 600;
+  padding: 8px 20px;
+  font-size: 18px;
+  border: 0;
+  cursor: pointer;
+
+  &:focus,
+  &:active {
+    outline: none;
+    background: var(--btn-bg--active);
+    box-shadow: var(--btn-box-shadow--active);
+  }
+
+  &:hover {
+    background: var(--btn-bg--hover);
+    box-shadow: var(--btn-box-shadow--hover);
+  }
+}
