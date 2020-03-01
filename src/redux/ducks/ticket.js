@@ -12,16 +12,11 @@ export const ACTION_TYPES = {
 
 ACTION_TYPES.SET_FILTER_STOPS = `${REDUCER_NAME}/SET_FILTER_STOPS`
 ACTION_TYPES.SET_SORT_FLIGHT = `${REDUCER_NAME}/SET_SORT_FLIGHT`
-ACTION_TYPES.GET_LIST = `${REDUCER_NAME}/GET_LIST`
 
 /* Selectors */
 export const selectors = {}
 selectors.reducer = (state) => state[REDUCER_NAME]
 
-selectors.list = createSelector(
-  selectors.reducer,
-  (({ list }) => list),
-)
 selectors.chunks = createSelector(
   selectors.reducer,
   (({ chunks }) => chunks),
@@ -57,9 +52,6 @@ actions.setStops = (payload) => ({
 actions.setSortFlight = (payload) => ({
   type: ACTION_TYPES.SET_SORT_FLIGHT,
   payload,
-})
-actions.getList = () => ({
-  type: ACTION_TYPES.GET_LIST,
 })
 actions.getChunks = (searchId) => ({
   type: ACTION_TYPES.GET_CHUNK,

@@ -11,33 +11,9 @@ const initialState = {
   list: [],
 }
 
-const getSegmentsDuration = (ticket) => {
-  const { segments } = ticket
-  return segments.reduce(
-    (acc, { duration }) => acc + duration,
-    0,
-  )
-}
-
-const flightCompare = {
-  cheapest: (a, b) => a.price - b.price,
-  quickest: (a, b) => getSegmentsDuration(a) - getSegmentsDuration(b),
-}
-
-const stopsFilter = (allowed) => (ticket) => {
-  const { segments } = ticket
-  return segments.every(({ stops }) => allowed.includes(stops.length))
-}
-
 const ticketReducer = (state = initialState, action) => {
   const { type, payload } = action
-  const {
-    chunks,
-    sortFlight,
-    filterStops: stops,
-  } = state
-
-  const list = chunks.slice()
+  const { chunks } = state
 
   switch (type) {
     case ACTION_TYPES.GET_CHUNK_PENDING:
@@ -49,13 +25,6 @@ const ticketReducer = (state = initialState, action) => {
         isFetching: false,
         chunks: chunks.concat(payload),
       }
-
-    case ACTION_TYPES.GET_LIST:
-      if (Object.prototype.hasOwnProperty.call(flightCompare, sortFlight)) {
-        list.sort(flightCompare[sortFlight])
-      }
-
-      return { ...state, list: list.filter(stopsFilter(stops)) }
 
     case ACTION_TYPES.GET_SEARCH_ID_FULFILLED:
       return { ...state, searchId: payload.searchId }
