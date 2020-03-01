@@ -1,4 +1,5 @@
-import React from 'react'
+/* eslint-disable react/no-array-index-key */
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import './style.scss'
 
@@ -8,7 +9,13 @@ const Message = ({ title, description, actions }) => (
       <div className="message__icon" />
       <div className="message__title">{title}</div>
       {description && <div className="message__description">{description}</div>}
-      {actions && <div className="message__actions">{actions.map((action) => action)}</div>}
+      {actions && (
+        <div className="message__actions">
+          {actions.map((action, index) => (
+            <Fragment key={index}>{action}</Fragment>
+          ))}
+        </div>
+      )}
     </div>
   </div>
 )
