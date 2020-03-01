@@ -60,10 +60,10 @@ const SortingTabs = (props) => {
 
 SortingTabs.propTypes = {
   options: PropTypes.arrayOf(PropTypes.object).isRequired,
-  initialValue: PropTypes.arrayOf(PropTypes.oneOfType([
+  initialValue: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
-  ])).isRequired,
+  ]).isRequired,
   onChange: PropTypes.func.isRequired,
 }
 
