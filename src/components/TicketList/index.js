@@ -42,7 +42,7 @@ const TicketList = ({ tickets, total }) => {
 }
 
 TicketList.propTypes = {
-  tickets: PropTypes.arrayOf(Ticket.propTypes).isRequired,
+  tickets: PropTypes.arrayOf(PropTypes.shape(Ticket.propTypes)).isRequired,
   total: PropTypes.number.isRequired,
 }
 
