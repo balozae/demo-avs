@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import Filter from 'components/Filter'
 import Checkbox from 'components/Checkbox'
@@ -11,12 +11,13 @@ const FilterStops = (props) => {
   const [selected, setSelected] = useState(value)
   const [checkedAll, setCheckedAll] = useState(false)
 
-  const select = (values) => {
+  const select = useCallback((values) => {
     const afterLength = values.length
     setCheckedAll(afterLength === length)
     setSelected(values)
     onChange(values)
-  }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const toggleAll = ({ checked }) => {
     const values = checked
@@ -25,6 +26,10 @@ const FilterStops = (props) => {
 
     select(values)
   }
+
+  useEffect(() => {
+    select(value)
+  }, [value, select])
 
   return (
     <Filter label="Количество пересадок">
