@@ -5,7 +5,7 @@ export const defaultFilterStops = [0, 1, 2, 3]
 const initialState = {
   searchId: '',
   sortFlight: 'cheapest',
-  filterStops: [],
+  filterStops: defaultFilterStops,
   isFetching: false,
   chunks: [],
   list: [],
