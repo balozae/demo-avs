@@ -3,6 +3,12 @@
 ## Тестовое задание Aviasales
 Задание [тут](https://github.com/balozae/demo-avs/blob/master/docs/task.md).
 
+## Что реализовано
+- билеты отображаются сразу как появляется первая партия
+- верстка
+  - perfect pixel
+  - mobile first
+
 ## Демо
 [Live demo](https://avs-kappa.now.sh/)
 
