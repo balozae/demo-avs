@@ -10,8 +10,8 @@
   - perfect pixel
   - mobile first
 
-## Демо
-[Live demo](https://avs-kappa.now.sh/)
+## [Демо](https://avs-kappa.now.sh/)
+![Скриншот](./docs/demo.jpeg)
 
 ## Настройка
 Установи зависимости командой `yarn install`
