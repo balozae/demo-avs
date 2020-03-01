@@ -1,7 +1,9 @@
 /* eslint-disable implicit-arrow-linebreak, comma-style */
+import fetch from 'unfetch'
+
 class Api {
   constructor() {
-    this.client = fetch.bind(window)
+    this.client = fetch
   }
 
   tickets = {
