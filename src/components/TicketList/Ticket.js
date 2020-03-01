@@ -37,7 +37,7 @@ const Ticket = (props) => {
 Ticket.propTypes = {
   price: PropTypes.number.isRequired,
   carrier: PropTypes.string.isRequired,
-  segments: PropTypes.arrayOf(PropTypes.objectOf(Segment.propTypes)).isRequired,
+  segments: PropTypes.arrayOf(PropTypes.shape(Segment.propTypes)).isRequired,
 }
 
 export default Ticket
