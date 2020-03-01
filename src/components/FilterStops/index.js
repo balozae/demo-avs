@@ -5,10 +5,10 @@ import Checkbox from 'components/Checkbox'
 import pluck from 'misc/pluck'
 
 const FilterStops = (props) => {
-  const { options, initialValue, onChange } = props
+  const { options, value, onChange } = props
   const { length } = options
 
-  const [selected, setSelected] = useState(initialValue)
+  const [selected, setSelected] = useState(value)
   const [checkedAll, setCheckedAll] = useState(false)
 
   const select = (values) => {
@@ -36,7 +36,7 @@ const FilterStops = (props) => {
 
 FilterStops.propTypes = {
   options: PropTypes.arrayOf(PropTypes.object).isRequired,
-  initialValue: PropTypes.arrayOf(PropTypes.oneOfType([
+  value: PropTypes.arrayOf(PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
   ])).isRequired,

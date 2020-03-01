@@ -19,7 +19,7 @@ const Filters = () => {
     <div className="filters__wrapper">
       <FilterStops
         options={options}
-        initialValue={stops}
+        value={stops}
         onChange={(payload) => store.dispatch({
           type: ACTION_TYPES.SET_FILTER_STOPS,
           payload,
