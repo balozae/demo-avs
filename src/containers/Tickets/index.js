@@ -48,15 +48,13 @@ const Tickets = () => {
   }, [searchId])
 
   const data = useMemo(() => {
-    const result = Array.prototype.slice.call(tickets)
+    const result = tickets.filter(stopsFilter(stops))
 
     if (Object.prototype.hasOwnProperty.call(flightCompare, sortFlight)) {
       result.sort(flightCompare[sortFlight])
     }
 
-    return result
-      .filter(stopsFilter(stops))
-      .slice(0, 5)
+    return result.slice(0, 5)
   }, [sortFlight, stops, tickets])
 
   return (
