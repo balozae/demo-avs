@@ -1,6 +1,6 @@
 Проект собран на [Create React App](https://github.com/facebook/create-react-app).
 
-## Тестовое задание Aviasales
+# Тестовое задание Aviasales
 Задание [тут](https://github.com/balozae/demo-avs/blob/master/docs/task.md).
 Оригинал [здесь](https://github.com/KosyanMedia/test-tasks/tree/master/aviasales_frontend).
 Фронт aviasales [рядом](https://github.com/balozae/aviasales-sources).
