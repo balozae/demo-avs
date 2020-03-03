@@ -10,6 +10,7 @@
 - верстка
   - perfect pixel
   - mobile first
+- unit тесты
 
 ## [Демо](https://avs-kappa.now.sh/)
 ![Скриншот](./docs/demo.jpeg)
