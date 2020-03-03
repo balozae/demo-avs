@@ -3,6 +3,7 @@
 ## Тестовое задание Aviasales
 Задание [тут](https://github.com/balozae/demo-avs/blob/master/docs/task.md).
 Оригинал [здесь](https://github.com/KosyanMedia/test-tasks/tree/master/aviasales_frontend).
+Фронт aviasales [рядом](https://github.com/balozae/aviasales-sources).
 
 ## Что реализовано
 - билеты отображаются сразу как появляется первая партия
