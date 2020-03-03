@@ -2,6 +2,13 @@
   "name": "avs",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint ./src"
+  },
   "dependencies": {
     "@formatjs/intl-pluralrules": "^1.5.2",
     "@formatjs/intl-unified-numberformat": "^3.2.0",
@@ -20,15 +27,10 @@
     "reselect": "^4.0.0",
     "unfetch": "^4.1.0"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "lint": "eslint ./src"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+  "devDependencies": {
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "mocha": "^7.1.0"
   },
   "browserslist": {
     "production": [
@@ -41,10 +43,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "eslint-config-airbnb": "^18.0.1",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "mocha": "^7.1.0"
   }
 }
