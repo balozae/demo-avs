@@ -24,4 +24,9 @@ describe('utils: plural', () => {
     const res = plural(6, ...words)
     assert.equal(res, 'пересадок')
   })
+
+  it('30000 пересадок', () => {
+    const res = plural(30000, ...words)
+    assert.equal(res, 'пересадок')
+  })
 })
