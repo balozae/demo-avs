@@ -66,6 +66,10 @@ selectors.tickets = createSelector(
   getSortedAndFiltered,
   (state) => state,
 )
+selectors.total = createSelector(
+  getChunks,
+  (chunks) => chunks.length,
+)
 
 /* ----------------
     Actions

@@ -16,8 +16,8 @@ const Tickets = () => {
   const searchId = useSelector(selectors.searchId)
   const sortFlight = useSelector(selectors.sortFlight)
   const tickets = useSelector(selectors.tickets)
+  const total = useSelector(selectors.total)
   const data = tickets.slice(0, 5)
-  const total = tickets.length
 
   useEffect(() => {
     store.dispatch(actions.getSearchId())
