@@ -1,0 +1,61 @@
+[
+  {
+    "carrier": "Encapsulation",
+    "price": 1488,
+    "segments": [
+      {
+        "stops": [
+          "xaxa",
+          "ofigenno"
+        ],
+        "duration": 1
+      },
+      {
+        "stops": [],
+        "duration": 1
+      }
+    ]
+  },
+  {
+    "carrier": "Inheritance",
+    "price": 100500,
+    "segments": [
+      {
+        "stops": [
+          "a",
+          "b",
+          "c"
+        ],
+        "duration": 35
+      },
+      {
+        "stops": [
+          "3",
+          "1",
+          "b|"
+        ],
+        "duration": 35
+      }
+    ]
+  },
+  {
+    "carrier": "Polymorphism",
+    "price": 228,
+    "segments": [
+      {
+        "stops": [
+          "a",
+          "b"
+        ],
+        "duration": 5
+      },
+      {
+        "stops": [
+          "3",
+          "1"
+        ],
+        "duration": 5
+      }
+    ]
+  }
+]

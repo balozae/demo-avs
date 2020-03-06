@@ -7,7 +7,8 @@ import uuidv4 from 'uuid/v4'
 import { initialState } from 'redux/reducers/ticket'
 import searchMock from 'mock/search.json'
 import ticketsMockRAW from 'mock/tickets.json'
-import { actions, ACTION_TYPES } from './ticket'
+import chunksMock from 'mock/chunks.json'
+import { actions, ACTION_TYPES, selectors } from './ticket'
 
 jest.mock('uuid/v4')
 uuidv4.mockReturnValue('uuid-v4-value')
@@ -73,5 +74,61 @@ describe('duck: ticket', () => {
 
     const actualActions = store.getActions()
     assert.deepEqual(actualActions, expectedActions)
+  })
+
+  it('selector: tickets - should return filtered array', () => {
+    const [, second] = chunksMock
+
+    assert.deepEqual(
+      selectors.tickets({
+        ticket: {
+          ...initialState,
+          filterStops: [3],
+          chunks: chunksMock,
+        },
+      }),
+      [second],
+    )
+  })
+
+  it('selector: tickets - should return filitered and sorted array', () => {
+    const [first, second, third] = chunksMock
+
+    assert.deepEqual(
+      selectors.tickets({
+        ticket: {
+          ...initialState,
+          sortFlight: 'cheapest',
+          filterStops: [0, 2],
+          chunks: chunksMock,
+        },
+      }),
+      [third, first],
+    )
+
+    assert.deepEqual(
+      selectors.tickets({
+        ticket: {
+          ...initialState,
+          filterStops: [0, 1, 2, 3],
+          sortFlight: 'quickest',
+          chunks: chunksMock,
+        },
+      }),
+      [first, third, second],
+    )
+  })
+
+  it('selector: tickets - if empty filterStops should return empty array', () => {
+    assert.deepEqual(
+      selectors.tickets({
+        ticket: {
+          ...initialState,
+          filterStops: [],
+          chunks: chunksMock,
+        },
+      }),
+      [],
+    )
   })
 })
