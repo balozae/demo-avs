@@ -35,7 +35,7 @@ const searchId = 'abra-kadabra-777'
 const mockStore = configureMockStore(middlewares)
 const store = mockStore({ ticket: initialState })
 
-describe('selector: ticket', () => {
+describe('duck: ticket', () => {
   beforeEach(() => {
     store.clearActions()
   })
