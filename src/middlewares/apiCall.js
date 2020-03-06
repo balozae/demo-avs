@@ -1,9 +1,12 @@
 import { genPromiseActionNames } from 'misc/helpers'
 import withRetry from 'misc/withRetry'
 
-const apiCallMiddleware = ({ dispatch }) => (next) => async function apiCallMiddle(action) {
+const apiCallMiddleware = ({ dispatch }) => (next) => async (action) => {
   const {
-    apiCall, type, meta, transformPayload,
+    apiCall,
+    type,
+    meta,
+    transformPayload,
   } = action
 
   if (!apiCall) {
