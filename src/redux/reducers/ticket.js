@@ -6,9 +6,7 @@ export const initialState = {
   searchId: '',
   sortFlight: 'cheapest',
   filterStops: defaultFilterStops,
-  isFetching: false,
   chunks: [],
-  list: [],
 }
 
 const ticketReducer = (state = initialState, action) => {
@@ -16,15 +14,8 @@ const ticketReducer = (state = initialState, action) => {
   const { chunks } = state
 
   switch (type) {
-    case ACTION_TYPES.GET_CHUNK_PENDING:
-      return { ...state, isFetching: true }
-
     case ACTION_TYPES.GET_CHUNK_FULFILLED:
-      return {
-        ...state,
-        isFetching: false,
-        chunks: chunks.concat(payload.tickets),
-      }
+      return { ...state, chunks: chunks.concat(payload.tickets) }
 
     case ACTION_TYPES.GET_SEARCH_ID_FULFILLED:
       return { ...state, searchId: payload.searchId }
@@ -35,9 +26,8 @@ const ticketReducer = (state = initialState, action) => {
     case ACTION_TYPES.SET_FILTER_STOPS:
       return { ...state, filterStops: payload }
 
-    default: {
+    default:
       return state
-    }
   }
 }
 
