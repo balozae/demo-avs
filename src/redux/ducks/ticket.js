@@ -2,6 +2,7 @@ import { createSelector } from 'reselect'
 import { genPromiseActionTypes } from 'misc/helpers'
 import api from 'misc/api'
 import store from 'redux/store'
+import uuidv4 from 'uuid/v4'
 
 const REDUCER_NAME = 'ticket'
 
@@ -61,10 +62,10 @@ actions.getChunks = (searchId) => ({
       store.dispatch(actions.getChunks(searchId))
     }
 
-    const newTickets = tickets.map((ticket) => {
-      const uuid = Math.random().toString(36).substring(2, 16)
-      return { ...ticket, uuid }
-    })
+    const newTickets = tickets.map((ticket) => ({
+      ...ticket,
+      uuid: uuidv4(),
+    }))
 
     return newTickets
   },
