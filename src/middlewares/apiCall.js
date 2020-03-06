@@ -4,9 +4,10 @@ import withRetry from 'misc/withRetry'
 // eslint-disable-next-line consistent-return
 const apiCallMiddleware = ({ dispatch }) => (next) => async (action) => {
   const {
-    apiCall,
     type,
     meta,
+    apiCall,
+    hasNext,
     transformPayload,
   } = action
 
@@ -33,6 +34,10 @@ const apiCallMiddleware = ({ dispatch }) => (next) => async (action) => {
       type: fulfilled,
       payload,
     })
+
+    if (hasNext && hasNext(payload)) {
+      dispatch(action)
+    }
   } catch (e) {
     dispatch({ ...newAction, type: rejected })
   }

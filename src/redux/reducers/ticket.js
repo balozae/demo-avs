@@ -23,7 +23,7 @@ const ticketReducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: false,
-        chunks: chunks.concat(payload),
+        chunks: chunks.concat(payload.tickets),
       }
 
     case ACTION_TYPES.GET_SEARCH_ID_FULFILLED:
