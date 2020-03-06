@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react'
+import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import store from 'redux/store'
 import './style.scss'
@@ -12,29 +12,11 @@ const sortingOptions = [
   /* { label: 'оптимальный', value: 'best' } */
 ]
 
-const getSegmentsDuration = (ticket) => {
-  const { segments } = ticket
-  return segments.reduce(
-    (acc, { duration }) => acc + duration,
-    0,
-  )
-}
-
-const flightCompare = {
-  cheapest: (a, b) => a.price - b.price,
-  quickest: (a, b) => getSegmentsDuration(a) - getSegmentsDuration(b),
-}
-
-const stopsFilter = (filter) => (ticket) => {
-  const { segments } = ticket
-  return segments.every(({ stops }) => filter.includes(stops.length))
-}
-
 const Tickets = () => {
   const searchId = useSelector(selectors.searchId)
-  const stops = useSelector(selectors.filterStops)
   const sortFlight = useSelector(selectors.sortFlight)
-  const tickets = useSelector(selectors.chunks)
+  const tickets = useSelector(selectors.tickets)
+  const data = tickets.slice(0, 5)
   const total = tickets.length
 
   useEffect(() => {
@@ -46,16 +28,6 @@ const Tickets = () => {
       store.dispatch(actions.getChunks(searchId))
     }
   }, [searchId])
-
-  const data = useMemo(() => {
-    const result = tickets.filter(stopsFilter(stops))
-
-    if (Object.prototype.hasOwnProperty.call(flightCompare, sortFlight)) {
-      result.sort(flightCompare[sortFlight])
-    }
-
-    return result.slice(0, 5)
-  }, [sortFlight, stops, tickets])
 
   return (
     <div className="list">

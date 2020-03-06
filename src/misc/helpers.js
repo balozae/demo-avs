@@ -14,3 +14,17 @@ export const genPromiseActionNames = (action) => ({
   fulfilled: `${action}_FULFILLED`,
   rejected: `${action}_REJECTED`,
 })
+
+export const getSegmentsDuration = (ticket) => {
+  const { segments } = ticket
+
+  return segments.reduce(
+    (acc, { duration }) => acc + duration,
+    0,
+  )
+}
+
+export const flightOrderBy = {
+  cheapest: (a, b) => a.price - b.price,
+  quickest: (a, b) => getSegmentsDuration(a) - getSegmentsDuration(b),
+}

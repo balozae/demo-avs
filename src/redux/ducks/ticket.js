@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect'
-import { genPromiseActionTypes } from 'misc/helpers'
+import { genPromiseActionTypes, flightOrderBy } from 'misc/helpers'
 import api from 'misc/api'
 import uuidv4 from 'uuid/v4'
 
@@ -13,32 +13,63 @@ export const ACTION_TYPES = {
 ACTION_TYPES.SET_FILTER_STOPS = `${REDUCER_NAME}/SET_FILTER_STOPS`
 ACTION_TYPES.SET_SORT_FLIGHT = `${REDUCER_NAME}/SET_SORT_FLIGHT`
 
-/* Selectors */
+/* ----------------
+    Selectors
+---------------- */
 export const selectors = {}
 selectors.reducer = (state) => state[REDUCER_NAME]
 
-selectors.chunks = createSelector(
-  selectors.reducer,
-  (({ chunks }) => chunks),
-)
-selectors.isFetching = createSelector(
-  selectors.reducer,
-  (({ isFetching }) => isFetching),
-)
 selectors.searchId = createSelector(
   selectors.reducer,
   (({ searchId }) => searchId),
 )
-selectors.sortFlight = createSelector(
-  selectors.reducer,
-  (({ sortFlight }) => sortFlight),
-)
 selectors.filterStops = createSelector(
   selectors.reducer,
-  (({ filterStops }) => filterStops),
+  ({ filterStops }) => filterStops,
+)
+selectors.sortFlight = createSelector(
+  selectors.reducer,
+  ({ sortFlight }) => sortFlight,
+)
+const getChunks = createSelector(
+  selectors.reducer,
+  ({ chunks }) => chunks,
+)
+const getFiltered = createSelector(
+  getChunks,
+  selectors.filterStops,
+  (chunks, filterStops) => {
+    if (filterStops) {
+      return chunks.filter((ticket) => {
+        const { segments } = ticket
+        return segments.every(({ stops }) => filterStops.includes(stops.length))
+      })
+    }
+
+    return chunks
+  },
+)
+const getSortedAndFiltered = createSelector(
+  getFiltered,
+  selectors.sortFlight,
+  (chunks, sortFlight) => {
+    if (!Object.prototype.hasOwnProperty.call(flightOrderBy, sortFlight)) {
+      return chunks
+    }
+
+    const newState = [...chunks]
+    newState.sort(flightOrderBy[sortFlight])
+    return newState
+  },
+)
+selectors.tickets = createSelector(
+  getSortedAndFiltered,
+  (state) => state,
 )
 
-/* Actions */
+/* ----------------
+    Actions
+---------------- */
 export const actions = {}
 
 actions.getSearchId = () => ({
