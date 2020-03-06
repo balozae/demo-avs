@@ -1,6 +1,7 @@
 import { genPromiseActionNames } from 'misc/helpers'
 import withRetry from 'misc/withRetry'
 
+// eslint-disable-next-line consistent-return
 const apiCallMiddleware = ({ dispatch }) => (next) => async (action) => {
   const {
     apiCall,
@@ -15,25 +16,26 @@ const apiCallMiddleware = ({ dispatch }) => (next) => async (action) => {
 
   const { pending, fulfilled, rejected } = genPromiseActionNames(type)
 
-  dispatch({ type: pending, meta })
+  const newAction = { type: pending }
+  if (meta) {
+    newAction.meta = meta
+  }
+
+  dispatch(newAction)
 
   try {
     const response = await withRetry(action.apiCall, 10, ({ ok }) => ok)
     const data = await response.json()
+    const payload = transformPayload ? transformPayload(data) : data
 
     dispatch({
+      ...newAction,
       type: fulfilled,
-      payload: transformPayload ? transformPayload(data) : data,
-      meta,
+      payload,
     })
   } catch (e) {
-    // eslint-disable-next-line no-console
-    console.error(e)
-
-    dispatch({ type: rejected, meta })
+    dispatch({ ...newAction, type: rejected })
   }
-
-  return undefined
 }
 
 export default apiCallMiddleware
