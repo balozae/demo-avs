@@ -1,0 +1,197 @@
+{
+  "tickets": [
+    {
+      "price": 68889,
+      "carrier": "MH",
+      "segments": [
+        {
+          "origin": "MOW",
+          "destination": "HKT",
+          "date": "2020-03-15T16:38:00.000Z",
+          "stops": [],
+          "duration": 1380
+        },
+        {
+          "origin": "MOW",
+          "destination": "HKT",
+          "date": "2020-04-04T03:25:00.000Z",
+          "stops": [],
+          "duration": 1905
+        }
+      ]
+    },
+    {
+      "price": 91275,
+      "carrier": "S7",
+      "segments": [
+        {
+          "origin": "MOW",
+          "destination": "HKT",
+          "date": "2020-03-15T04:15:00.000Z",
+          "stops": [
+            "KUL",
+            "DXB"
+          ],
+          "duration": 1335
+        },
+        {
+          "origin": "MOW",
+          "destination": "HKT",
+          "date": "2020-04-04T15:43:00.000Z",
+          "stops": [
+            "SHA",
+            "SIN"
+          ],
+          "duration": 1905
+        }
+      ]
+    },
+    {
+      "price": 74843,
+      "carrier": "SU",
+      "segments": [
+        {
+          "origin": "MOW",
+          "destination": "HKT",
+          "date": "2020-03-15T12:28:00.000Z",
+          "stops": [
+            "SIN"
+          ],
+          "duration": 1737
+        },
+        {
+          "origin": "MOW",
+          "destination": "HKT",
+          "date": "2020-04-04T05:55:00.000Z",
+          "stops": [
+            "HKG",
+            "SHA"
+          ],
+          "duration": 767
+        }
+      ]
+    },
+    {
+      "price": 45931,
+      "carrier": "MH",
+      "segments": [
+        {
+          "origin": "MOW",
+          "destination": "HKT",
+          "date": "2020-03-15T07:36:00.000Z",
+          "stops": [],
+          "duration": 854
+        },
+        {
+          "origin": "MOW",
+          "destination": "HKT",
+          "date": "2020-04-04T00:35:00.000Z",
+          "stops": [
+            "DXB",
+            "KUL"
+          ],
+          "duration": 1753
+        }
+      ]
+    },
+    {
+      "price": 21886,
+      "carrier": "FV",
+      "segments": [
+        {
+          "origin": "MOW",
+          "destination": "HKT",
+          "date": "2020-03-15T07:03:00.000Z",
+          "stops": [],
+          "duration": 970
+        },
+        {
+          "origin": "MOW",
+          "destination": "HKT",
+          "date": "2020-04-04T00:20:00.000Z",
+          "stops": [
+            "BKK",
+            "IST",
+            "SHA"
+          ],
+          "duration": 993
+        }
+      ]
+    },
+    {
+      "price": 17776,
+      "carrier": "MH",
+      "segments": [
+        {
+          "origin": "MOW",
+          "destination": "HKT",
+          "date": "2020-03-15T11:29:00.000Z",
+          "stops": [
+            "AUH",
+            "BKK",
+            "SHA"
+          ],
+          "duration": 634
+        },
+        {
+          "origin": "MOW",
+          "destination": "HKT",
+          "date": "2020-04-04T12:22:00.000Z",
+          "stops": [
+            "IST",
+            "BKK",
+            "SHA"
+          ],
+          "duration": 1591
+        }
+      ]
+    },
+    {
+      "price": 24383,
+      "carrier": "FV",
+      "segments": [
+        {
+          "origin": "MOW",
+          "destination": "HKT",
+          "date": "2020-03-15T08:18:00.000Z",
+          "stops": [
+            "HKG",
+            "SHA"
+          ],
+          "duration": 730
+        },
+        {
+          "origin": "MOW",
+          "destination": "HKT",
+          "date": "2020-04-04T08:08:00.000Z",
+          "stops": [
+            "KUL",
+            "BKK"
+          ],
+          "duration": 1236
+        }
+      ]
+    },
+    {
+      "price": 62787,
+      "carrier": "SU",
+      "segments": [
+        {
+          "origin": "MOW",
+          "destination": "HKT",
+          "date": "2020-03-15T15:17:00.000Z",
+          "stops": [],
+          "duration": 1442
+        },
+        {
+          "origin": "MOW",
+          "destination": "HKT",
+          "date": "2020-04-03T22:30:00.000Z",
+          "stops": [],
+          "duration": 1368
+        }
+      ]
+    }
+  ],
+  "stop": false
+}
