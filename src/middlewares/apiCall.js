@@ -27,11 +27,7 @@ const apiCallMiddleware = ({ dispatch }) => (next) => async function apiCallMidd
     // eslint-disable-next-line no-console
     console.error(e)
 
-    dispatch({
-      type: rejected,
-      payload: e,
-      meta,
-    })
+    dispatch({ type: rejected, meta })
   }
 
   return undefined
