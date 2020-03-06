@@ -2,7 +2,7 @@ import { ACTION_TYPES } from 'redux/ducks/ticket'
 
 export const defaultFilterStops = [0, 1, 2, 3]
 
-const initialState = {
+export const initialState = {
   searchId: '',
   sortFlight: 'cheapest',
   filterStops: defaultFilterStops,
