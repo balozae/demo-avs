@@ -33,7 +33,7 @@ const searchId = 'abra-kadabra-777'
 
 /* create store */
 const mockStore = configureMockStore(middlewares)
-const store = mockStore({ tickets: initialState })
+const store = mockStore({ ticket: initialState })
 
 describe('selector: ticket', () => {
   beforeEach(() => {
