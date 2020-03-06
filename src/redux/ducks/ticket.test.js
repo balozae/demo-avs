@@ -40,7 +40,7 @@ describe('duck: ticket', () => {
     store.clearActions()
   })
 
-  it('should create PENDING, FULFILLED actions when get search id', async () => {
+  it('action: should create PENDING, FULFILLED actions when get search id', async () => {
     fetchMock.get(api.search, searchMock, { overwriteRoutes: false })
 
     const { pending, fulfilled } = genPromiseActionNames(ACTION_TYPES.GET_SEARCH_ID)
@@ -55,7 +55,7 @@ describe('duck: ticket', () => {
     assert.deepEqual(actualActions, expectedActions)
   })
 
-  it('should create PENDING, FULFILLED actions when load tickets with searchId', async () => {
+  it('action: should create PENDING, FULFILLED actions when load tickets with searchId', async () => {
     fetchMock
       // twice returns 500 error
       .getOnce(api.tickets(searchId), 500, { overwriteRoutes: false })
